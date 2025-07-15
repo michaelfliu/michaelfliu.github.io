@@ -1,0 +1,285 @@
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Alert,
+  Box,
+  Divider,
+  Grid2,
+  List,
+  ListItem,
+  Typography,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+import PageContainer from "@/components/PageContainer";
+import PageTitle from "@/components/PageTitle";
+import SectionTitle from "@/components/SectionTitle";
+import TabContainer from "@/components/TabContainer";
+
+<PageContainer>
+  <PageTitle>Differential Calculus</PageTitle>
+  <SectionTitle>Limits</SectionTitle>
+  <Box mb={2}>
+    **Definition of Limits**
+
+    Suppose $f : \mathbb R \to \mathbb R$ is a function defined on some
+    interval containing $x = a \in \mathbb R$ (except possibly at $x=a$). We
+    say that the limit of $f$ as $x$ approaches $a$ is $L \in \mathbb R$ and
+    write
+    $$
+    \lim_{x \to a} f(x) = L
+    $$
+    if for every $\epsilon \in \mathbb R^+$ there exists some
+    $\delta \in \mathbb R^+$ such that
+    $$
+    0 < \abs{x - a} < \delta
+    \qquad\text{implies}\qquad
+    \abs{f(x) - L} < \epsilon
+    $$
+    If there is no $L \in \mathbb R$ such that the above holds, then we say
+    the limit does not exist, and write
+    $$
+      \lim_{x \to a} f(x) = \text{DNE}
+    $$
+
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="button">Intuition</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        We can imagine $\epsilon$ to represent some amount of maximum change in
+        the vertical axis of the function $f$ and $\delta$ to represent an
+        amount of change in the horizontal axis. Given $\epsilon$, we must find
+        some small enough interval around $a$ such that $f(x)$ does not deviate
+        from $L$ by more than $\epsilon$.
+
+        If the function is "smooth", then picking smaller and smaller $\delta$'s
+        makes the vertical deviation away from $L$ smaller and smaller in that
+        interval. Eventually, we will find a $\delta$ that satisfies the
+        condition in the definition.
+
+        However, suppose $f$ has a jump discontinuity at $a$. Then in **any**
+        interval around $a$, and for **any** constant $L$, the function deviates
+        at least half the amount of the jump in the function from $L$. This in
+        turn implies that such functions do not have a limit at $a$.
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="button">Example</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        Consider a function $f : \mathbb R \to \mathbb R$ that is 1 everywhere
+        except for at $x = 0$, where it is $2$.
+        $$
+          f(x) = \begin{cases}2 & x = 0 \\ 1 & \text{otherwise}\end{cases}
+        $$
+        We show that
+        $$
+          \lim_{x \to 0} f(x) = 1
+        $$
+        First, consider an arbitrary $\epsilon \in \mathbb R^+$. We pick $\delta
+        = 1$. Note that for any $x \in (-\delta, \delta)$ other than $x = 0$, we
+        have $f(x) = 1$. Note that $\abs{f(x) - 1} = 0 < \epsilon$ as required.
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="button">Other Limits</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        The definition of the limit given above is rather restrictive &ndash;
+        it only permits functions mapping real numbers to real numbers. However,
+        limits appear in many other areas of mathematics involving functions
+        mapping between all sorts of spaces. In fact, some spaces may not have
+        a convenient distance operator that can take the place of subtraction
+        in $\mathbb R$. In these cases, different definitions of the limit are
+        required.
+      </AccordionDetails>
+    </Accordion>
+
+  </Box>
+
+<Divider />
+
+  <Box my={2}>
+    **Definition of Continuity**
+
+    A function $f : \mathbb R \to \mathbb R$ is *continuous* at a *point*
+    $a \in \mathbb R$ if
+    $$
+      \lim_{x \to a} f(x) = f(a)
+    $$
+    A function is continuous in an *open interval* $(a, b)$ if it is
+    continous at all points in $(a, b)$
+
+    A function is *continuous everywhere* if it is continous at all points
+    in its domain.
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="button">Examples</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+      </AccordionDetails>
+    </Accordion>
+
+  </Box>
+
+**Properties of Limits**
+
+Suppose $f, g : \mathbb R \to \mathbb R$ are functions defined in a region
+around $a \in \mathbb R$. Further let $\lim_{x \to a} f(x) = L_f$ and
+$\lim_{x \to a} g(x) = L_g$. The following properties hold.
+
+$$
+\begin{align}
+&\lim_{x \to a}c \cdot f(x) &=& \, c \cdot \lim_{x \to a} f(x) \\
+&\lim_{x \to a} \left[f(x) + g(x)\right] &=& \lim_{x \to a} f(x) + \lim_{x \to a} g(x) \\
+&\lim_{x \to a} \left[f(x) \cdot g(x)\right] &=& \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x) \\
+&\lim_{x \to a} f^b(x) &=& \left[\lim_{x \to a} f(x)\right]^b
+\end{align}
+$$
+
+<TabContainer titles={["Proof 1", "Proof 2", "Proof 3", <s>Proof 4</s>]}>
+  <Box p={1}>
+    Let $\epsilon \in \mathbb R^+$ be arbitrary. That $f$ has a limit at $a$
+    furnishes us a $\delta$ such that for $0 < \abs{x - a} < \delta$ we have
+    $\abs{f(x) - L_f} < \epsilon / c$. But then it is also true that 
+    $0 < \abs{cf(x) - cL_f} < \epsilon$, as required.
+  </Box>
+  <Box p={1}>
+    Let $\epsilon \in \mathbb R^+$ be arbitrary. That $f$ and $g$ have a limit 
+    at $a$ furnishes us a $\delta$ such that for $0 < \abs{x - a} < \delta$ we
+    have $\abs{f(x) - L_f} < \epsilon / 2$ and $\abs{g(x) - L_g} < \epsilon / 2$
+    . As required,
+    $$
+      \begin{align*}
+        \abs{f(x) + g(x) - (L_f + L_g)}
+          &\leq \abs{f(x) - L_f} + \abs{g(x) - L_g} \\
+          &< \epsilon / 2 + \epsilon / 2 = \epsilon
+      \end{align*}
+    $$
+  </Box>
+  <Box p={1}>
+    Let $\epsilon \in \mathbb R^+$ be arbitrary. That $f$ and $g$ have a limit 
+    at $a$ furnishes us a $\delta$ such that for $0 < \abs{x - a} < \delta$ we
+    have 
+    $$
+      0 < \abs{f(x) - L_f} < \epsilon_f \qquad \text{and} \qquad 0 < \abs{g(x) - L_g} < \epsilon_g
+    $$
+    Then,
+    $$
+      \begin{align*}
+        \abs{f(x)g(x) - L_fL_g}
+          &= \abs{f(x)g(x) - g(x)L_f + g(x)L_f - L_fL_g}\\
+          &= \abs{g(x)(f(x) - L_f) + L_f(g(x) - L_g)} \\
+          &\leq \abs{g(x)}\abs{f(x) - L_f} + \abs{L_f}\abs{g(x) - L_g} \\
+          &\leq \abs{g(x)}\epsilon_f + \abs{L_f}\epsilon_g \\
+          &< \abs{g(x)}\epsilon_f + \abs{L_f}\epsilon_g + \epsilon_f
+      \end{align*}
+    $$
+    We can see that for some $\delta' \in \mathbb R$,
+    with $\delta' < \delta$ that $g(x)$ is bounded by $L_g+1$ when 
+    $0 < \abs{x-a} < \delta'$. Furthermore, $L_f$ is a constant, so we can make
+    the last expression smaller than $\epsilon$ by choosing sufficiently small 
+    $\epsilon_f$ and $\epsilon_g$, as required.
+  </Box>
+  <Box p={1}>
+    <Alert severity="info">This section is <b>INCOMPLETE</b></Alert>
+    $b=1$ is trivial.
+    
+    Recursively applying (3) with $g=f$ gives us (4) for all
+    integers $b \geq 2$.
+    
+    For $b=-1$, note that we require $L_f \neq 0$. There
+    exists a $\delta_1$ such that $\abs{L_f - f(x)} < \epsilon_1$ and a
+    $\delta_2$ such that $\abs{f(x)} > \abs{L_f}/2 > 0$.
+    $$
+      \begin{align*}
+        \abs{1/f(x) - 1/L_f} &= \abs{\frac{L_f - f(x)}{f(x)L_f}} \\
+        &< \epsilon_1 / (L_f^2/2)
+      \end{align*}
+    $$
+    Since $\epsilon_1$ is arbitrarily small, we can make the last expression
+    arbitrarily small.
+
+    Recursively applying (3) with $g=1/f$ gives us (4) for all integers $b < -1$
+
+    Proving for rational, and then all real $b$ gets quite difficult, so I will
+    stop here.
+  </Box>
+</TabContainer>
+
+  <Box my={2}>
+    <Accordion disableGutters>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="button">Corollary: Polynomials are continuous
+        everywhere</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        If $p(x)$ is a polynomial, then
+        $$
+          \lim_{x \to a} p(x) = p(a)
+        $$
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="button"><s>Proof</s></Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Alert severity="info">This section is <b>INCOMPLETE</b></Alert>
+        **Lemma:** Constant functions $f(x) = c$ are continuous everywhere
+
+        **Proof:** Let $a \in \mathbb R$ and $\epsilon \in \mathbb R^+$ be
+        arbitrary. Pick $\delta = 1$ and $L = c$. On the interval $(a - \delta
+        , a + \delta)$, we have $f(x) = c = L$ as required.
+
+        <Divider />
+
+        **Lemma:** Linear functions $f(x) = mx + b$ for $m, b \in \mathbb R$ are
+        continuous everywhere.
+
+        **Proof:** Let $a \in \mathbb R$ and $\epsilon \in \mathbb R^+$ be
+        arbitrary. Pick $\delta = \frac{\epsilon}{2m}$ and $L = ma+b$. On the
+        interval  $(a - \delta, a + \delta)$, we have $f(x) = f(a) + m(x-a)$.
+        Then  $\abs{f(x) - L} = \abs{m(x-a)} \leq \abs{m\delta} \leq \frac{
+        \epsilon}2 < \epsilon$ as required.
+
+        <Divider />
+
+        **Proof of Corollary:** We will prove by induction on the degree of the
+        polynomial.
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="button">Examples</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        $$
+        \lim_{x \to a} c = c
+          \qquad \lim_{x \to a} x = a
+          \qquad \lim_{x \to a} 3x^2 + 2x = 3a^2 + 2a
+        $$
+      </AccordionDetails>
+    </Accordion>
+
+  </Box>
+
+  <SectionTitle>Derivatives</SectionTitle>
+
+  **Definition of the Derivative**
+
+  Let $f : \mathbb R \to \mathbb R$ be a function. For a point $x \in \mathbb R$,
+  we define the *derivative* of $f$ at $x$ to be
+
+  $$
+    f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+  $$
+
+  where the limit exists. This defines a function $f' : \mathbb R \to \mathbb R$
+  whose domain consists of the points $x \in \mathbb R$ where the above limit
+  exists.
+</PageContainer>

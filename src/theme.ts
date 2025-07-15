@@ -21,14 +21,27 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          "& .MuiTypography-root": {
+            marginBottom: 0,
+          },
+        },
+      },
+    },
     MuiCard: {
-      defaultProps: {
-        sx: { height: "20em" },
+      styleOverrides: {
+        root: {
+          height: "20em",
+        },
       },
     },
     MuiCardActionArea: {
-      defaultProps: {
-        sx: { height: "100%" },
+      styleOverrides: {
+        root: {
+          height: "100%",
+        },
       },
     },
     MuiGrid2: {

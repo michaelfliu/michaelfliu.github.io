@@ -7,6 +7,7 @@ import theme from "../theme";
 import { Roboto } from "next/font/google";
 import MyAppBar from "@/components/MyAppBar";
 import { CssBaseline } from "@mui/material";
+import "katex/dist/katex.min.css";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700"],
@@ -32,15 +33,15 @@ export default function RootLayout({
         className={`${roboto.variable}`}
         style={{ display: "flex", flexDirection: "column", height: "100%" }}
       >
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <>
-              <MyAppBar />
-              {children}
-            </>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <>
+                <MyAppBar />
+                {children}
+              </>
+            </ThemeProvider>
+          </AppRouterCacheProvider>
       </body>
     </html>
   );

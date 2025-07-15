@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 
-export default function GraphsSandbox() {
+export default function Dice() {
   return (
     <Canvas>
       <mesh>

@@ -1,18 +1,11 @@
 "use client";
 
-import ItemLabel from "@/components/ItemLabel";
-import PageContainer from "@/components/PageContainer";
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  Grid2,
-  Link,
-  Typography,
-} from "@mui/material";
+import { Grid2, Link, Typography } from "@mui/material";
 import NextLink from "next/link";
+
+import PageContainer from "@/components/PageContainer";
+import PersonalWebsiteCard from "./projects/_cards/PersonalWebsiteCard";
+import AboutCard from "./_cards/AboutCard";
 
 export default function Home() {
   return (
@@ -43,22 +36,10 @@ export default function Home() {
       </Typography>
       <Grid2 container spacing={2}>
         <Grid2>
-          <Card>
-            <CardActionArea
-              LinkComponent={NextLink}
-              href={"/about"}
-              sx={{ height: "100%" }}
-            >
-              <CardContent sx={{ pb: 0 }}>
-                <ItemLabel title="about" />
-              </CardContent>
-              <CardHeader title="About Me" />
-              <CardContent>
-                <Box height={10} />A little bit about myself. Something to think
-                about.
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          <AboutCard />
+        </Grid2>
+        <Grid2>
+          <PersonalWebsiteCard />
         </Grid2>
       </Grid2>
     </PageContainer>

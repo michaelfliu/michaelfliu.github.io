@@ -1,14 +1,8 @@
-import ItemLabel from "@/components/ItemLabel";
+import { Grid2, Typography } from "@mui/material";
+
 import PageContainer from "@/components/PageContainer";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  Grid2,
-  Typography,
-} from "@mui/material";
-import NextLink from "next/link";
+import PersonalWebsiteCard from "./_cards/PersonalWebsiteCard";
+import GraphsSandboxCard from "./_cards/GraphsSandboxCard";
 
 export default function Projects() {
   return (
@@ -23,38 +17,10 @@ export default function Projects() {
 
       <Grid2 container spacing={2}>
         <Grid2>
-          <Card>
-            <CardActionArea
-              LinkComponent={NextLink}
-              href="/projects/personal-website"
-            >
-              <CardContent sx={{ pb: 0 }}>
-                <ItemLabel title="js" />
-              </CardContent>
-              <CardHeader title="Personal Website" />
-              <CardContent>
-                Interested in how I created this website? A sneak peek: I&apos;m
-                using React, Material UI, and Next.js.
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          <PersonalWebsiteCard />
         </Grid2>
         <Grid2>
-          <Card>
-            <CardActionArea
-              LinkComponent={NextLink}
-              href="/projects/graphs-sandbox"
-            >
-              <CardContent sx={{ pb: 0 }}>
-                <ItemLabel title="js" />
-              </CardContent>
-              <CardHeader title="Graphs Sandbox" />
-              <CardContent>
-                A playground for building graphs and then visualizing various
-                algorithms running on them.
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          <GraphsSandboxCard />
         </Grid2>
       </Grid2>
     </PageContainer>

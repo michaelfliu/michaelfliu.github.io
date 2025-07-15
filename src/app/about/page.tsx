@@ -34,13 +34,11 @@ export default function About() {
       <SectionTitle>Education</SectionTitle>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography sx={{ width: "33%", mb: 0 }}>
-            M.Sc Computer Science
-          </Typography>
-          <Typography color="textSecondary" sx={{ width: "55%", mb: 0 }}>
+          <Typography sx={{ width: "33%" }}>M.Sc Computer Science</Typography>
+          <Typography color="textSecondary" sx={{ width: "55%" }}>
             University of British Columbia
           </Typography>
-          <Typography sx={{ mb: 0 }}>2022 &ndash; 2024</Typography>
+          <Typography>2022 &ndash; 2024</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography fontWeight="bold" component="span">
@@ -84,13 +82,11 @@ export default function About() {
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography sx={{ width: "33%", mb: 0 }}>
-            B.Sc Computer Science
-          </Typography>
-          <Typography color="textSecondary" sx={{ width: "55%", mb: 0 }}>
+          <Typography sx={{ width: "33%" }}>B.Sc Computer Science</Typography>
+          <Typography color="textSecondary" sx={{ width: "55%" }}>
             University of British Columbia
           </Typography>
-          <Typography sx={{ mb: 0 }}>2017 &ndash; 2022</Typography>
+          <Typography>2017 &ndash; 2022</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography fontWeight="bold">Highlighted Courses:</Typography>
