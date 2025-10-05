@@ -21,6 +21,7 @@ const nextConfig = {
     nextImageExportOptimizer_generateAndUseBlurImages: "true",
     nextImageExportOptimizer_remoteImageCacheTTL: "0",
   },
+  reactStrictMode: false,
 };
 
 const withMDX = createMDX({

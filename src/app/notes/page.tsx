@@ -6,7 +6,7 @@ import {
   CardActionArea,
   CardContent,
   CardHeader,
-  Grid2,
+  Grid,
   Typography,
 } from "@mui/material";
 import NextLink from "next/link";
@@ -24,8 +24,8 @@ export default function NotesPage() {
         of these notes; they will probably be mostly my internal ramblings, but
         every so often, maybe I will write something useful.
       </Typography>
-      <Grid2 container spacing={2}>
-        <Grid2>
+      <Grid container spacing={2}>
+        <Grid>
           <Card>
             <CardActionArea
               LinkComponent={NextLink}
@@ -47,9 +47,9 @@ export default function NotesPage() {
               </CardContent>
             </CardActionArea>
           </Card>
-        </Grid2>
+        </Grid>
 
-        <Grid2>
+        <Grid>
           <Card>
             <CardActionArea
               LinkComponent={NextLink}
@@ -71,8 +71,8 @@ export default function NotesPage() {
               </CardContent>
             </CardActionArea>
           </Card>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </PageContainer>
   );
 }

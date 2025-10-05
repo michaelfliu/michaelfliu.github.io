@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { Box, Grid2 } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import NextLink from "next/link";
 import ExportedImage from "next-image-export-optimizer";
 import PageContainer from "@/components/PageContainer";
@@ -18,9 +18,9 @@ export default function Photography() {
   return (
     <PageContainer>
       <PageTitle>Photography</PageTitle>
-      <Grid2 container>
+      <Grid container>
         {photos.map((photo, index) => (
-          <Grid2 key={photo} sx={{ aspectRatio: 1 }}>
+          <Grid key={photo} sx={{ aspectRatio: 1 }}>
             <Box
               component={NextLink}
               href={`/photos/${photo}`}
@@ -37,9 +37,9 @@ export default function Photography() {
                 priority={index === 0}
               />
             </Box>
-          </Grid2>
+          </Grid>
         ))}
-      </Grid2>
+      </Grid>
     </PageContainer>
   );
 }

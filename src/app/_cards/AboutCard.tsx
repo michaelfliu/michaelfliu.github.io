@@ -13,7 +13,7 @@ export default function AboutCard() {
         <CardHeader title="About Me" />
         <CardContent>
           Click this card to learn just a little bit more about who I am and
-          what I've done.
+          what I&#39;ve done.
         </CardContent>
       </CardActionArea>
     </Card>

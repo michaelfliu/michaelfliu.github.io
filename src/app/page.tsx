@@ -1,6 +1,6 @@
 "use client";
 
-import { Grid2, Link, Typography } from "@mui/material";
+import { Grid, Link, Typography } from "@mui/material";
 import NextLink from "next/link";
 
 import PageContainer from "@/components/PageContainer";
@@ -34,14 +34,14 @@ export default function Home() {
       <Typography variant="h5" component="h2" gutterBottom fontWeight="bold">
         Highlights
       </Typography>
-      <Grid2 container spacing={2}>
-        <Grid2>
+      <Grid container spacing={2}>
+        <Grid>
           <AboutCard />
-        </Grid2>
-        <Grid2>
+        </Grid>
+        <Grid>
           <PersonalWebsiteCard />
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </PageContainer>
   );
 }

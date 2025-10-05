@@ -1,8 +1,9 @@
-import { Grid2, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 import PageContainer from "@/components/PageContainer";
 import PersonalWebsiteCard from "./_cards/PersonalWebsiteCard";
 import GraphsSandboxCard from "./_cards/GraphsSandboxCard";
+import DiceCard from "./_cards/DiceCard";
 
 export default function Projects() {
   return (
@@ -15,14 +16,17 @@ export default function Projects() {
         writing them up.
       </Typography>
 
-      <Grid2 container spacing={2}>
-        <Grid2>
+      <Grid container spacing={2}>
+        <Grid>
           <PersonalWebsiteCard />
-        </Grid2>
-        <Grid2>
+        </Grid>
+        <Grid>
           <GraphsSandboxCard />
-        </Grid2>
-      </Grid2>
+        </Grid>
+        <Grid>
+          <DiceCard />
+        </Grid>
+      </Grid>
     </PageContainer>
   );
 }
