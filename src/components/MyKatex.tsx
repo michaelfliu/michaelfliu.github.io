@@ -11,26 +11,28 @@ interface KatexContextProps {
   macros?: { [key: string]: string };
 }
 
-export function KatexContext(props: KatexContextProps) {
-  const macros = useMemo(() => ({...props.macros}), []);
-  return <_KatexContext.Provider value={macros} {...props} />;
+export function KatexContext({ children, macros }: KatexContextProps) {
+  const _macros = useMemo(() => ({ ...macros }), [macros]);
+  return (
+    <_KatexContext.Provider value={_macros}>{children} </_KatexContext.Provider>
+  );
 }
 
-function KatexComponent(props: { math: string; inline: boolean }) {
+function KatexComponent({ math, inline }: { math: string; inline: boolean }) {
   const theme = useTheme();
   const macros = useContext(_KatexContext);
   const renderedMath = useMemo(
     () =>
-      Katex.renderToString(props.math, {
-        displayMode: !props.inline,
+      Katex.renderToString(math, {
+        displayMode: !inline,
         errorColor: theme.palette.error.main,
         macros: macros,
       }),
-    [props.math]
+    [inline, macros, math, theme.palette.error.main]
   );
   return (
     <Box
-      component={props.inline ? "span" : "div"}
+      component={inline ? "span" : "div"}
       dangerouslySetInnerHTML={{ __html: renderedMath }}
     />
   );

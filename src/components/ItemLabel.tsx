@@ -1,4 +1,4 @@
-import { Box, Chip, Typography } from "@mui/material";
+import { Chip } from "@mui/material";
 
 interface ItemLabelProps {
   title: string;
