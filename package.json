@@ -23,6 +23,7 @@
     "@react-three/fiber": "^9.3.0",
     "@react-three/rapier": "^2.1.0",
     "@types/mdx": "^2.0.13",
+    "katex": "^0.16.25",
     "next": "^15.5.4",
     "next-image-export-optimizer": "^1.19.0",
     "react": "^19.2.0",

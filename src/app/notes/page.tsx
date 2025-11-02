@@ -1,15 +1,10 @@
-import ItemLabel from "@/components/ItemLabel";
 import PageContainer from "@/components/PageContainer";
 import PageTitle from "@/components/PageTitle";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  Grid,
-  Typography,
-} from "@mui/material";
-import NextLink from "next/link";
+import { Grid, Typography } from "@mui/material";
+
+import Calculus1Card from "./_cards/Calculus1Card";
+import Calculus2Card from "./_cards/Calculus2Card";
+import LimitsCard from "./_cards/LimitsCard";
 
 export default function NotesPage() {
   return (
@@ -26,51 +21,13 @@ export default function NotesPage() {
       </Typography>
       <Grid container spacing={2}>
         <Grid>
-          <Card>
-            <CardActionArea
-              LinkComponent={NextLink}
-              href="/notes/math/calculus-1"
-            >
-              <CardContent sx={{ pb: 0 }}>
-                <ItemLabel title="math" />
-              </CardContent>
-              <CardHeader title="Differential Calculus" sx={{ pb: 0 }} />
-              <CardContent>
-                <Typography>
-                  Condensed notes on everything* taught in a generic first
-                  course in calculus. Limits, continuity, derivatives,
-                  approximations, and theorems thereof.
-                </Typography>
-                <Typography variant="body2">
-                  * actually only some things
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          <Calculus1Card />
         </Grid>
-
         <Grid>
-          <Card>
-            <CardActionArea
-              LinkComponent={NextLink}
-              href="/notes/math/calculus-2"
-            >
-              <CardContent sx={{ pb: 0 }}>
-                <ItemLabel title="math" />
-              </CardContent>
-              <CardHeader title="Integral Calculus" sx={{ pb: 0 }} />
-              <CardContent>
-                <Typography>
-                  Condensed notes on everything* taught in a generic second
-                  course in calculus. Riemann integration, fundamental theorem
-                  of calculus, sequences and series, and theorems thereof.
-                </Typography>
-                <Typography variant="body2">
-                  * actually only some things
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          <Calculus2Card />
+        </Grid>
+        <Grid>
+          <LimitsCard />
         </Grid>
       </Grid>
     </PageContainer>
